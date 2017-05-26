@@ -20,6 +20,7 @@ import com.qubole.qds.sdk.java.api.ClusterApi;
 import com.qubole.qds.sdk.java.api.CommandApi;
 import com.qubole.qds.sdk.java.api.DbTapApi;
 import com.qubole.qds.sdk.java.api.HiveMetadataApi;
+import com.qubole.qds.sdk.java.api.NotebookApi;
 import com.qubole.qds.sdk.java.api.ReportApi;
 import com.qubole.qds.sdk.java.api.SchedulerApi;
 import com.qubole.qds.sdk.java.api.sparkjobserver.AppApi;
@@ -136,6 +137,9 @@ public class MockClient implements QdsClient
     {
         return new DbTapApiImpl(this);
     }
+
+    @Override
+    public NotebookApi notebook() { return new NotebookApiImpl(this); }
 
     @Override
     public ReportApi report()

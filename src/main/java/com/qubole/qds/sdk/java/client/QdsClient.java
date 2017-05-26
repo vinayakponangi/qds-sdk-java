@@ -19,6 +19,7 @@ import com.qubole.qds.sdk.java.api.ClusterApi;
 import com.qubole.qds.sdk.java.api.CommandApi;
 import com.qubole.qds.sdk.java.api.DbTapApi;
 import com.qubole.qds.sdk.java.api.HiveMetadataApi;
+import com.qubole.qds.sdk.java.api.NotebookApi;
 import com.qubole.qds.sdk.java.api.ReportApi;
 import com.qubole.qds.sdk.java.api.SchedulerApi;
 import com.qubole.qds.sdk.java.api.sparkjobserver.AppApi;
@@ -61,6 +62,13 @@ public interface QdsClient extends Closeable
      * @return DbTaps factory
      */
     public DbTapApi dbTaps();
+
+    /**
+     * Return Notebook api factory
+     *
+     * @return Notebook factory
+     */
+    public NotebookApi notebook();
 
     /**
      * Return report api factory

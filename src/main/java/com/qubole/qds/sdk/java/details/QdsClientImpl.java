@@ -21,6 +21,7 @@ import com.qubole.qds.sdk.java.api.ClusterApi;
 import com.qubole.qds.sdk.java.api.CommandApi;
 import com.qubole.qds.sdk.java.api.DbTapApi;
 import com.qubole.qds.sdk.java.api.HiveMetadataApi;
+import com.qubole.qds.sdk.java.api.NotebookApi;
 import com.qubole.qds.sdk.java.api.ReportApi;
 import com.qubole.qds.sdk.java.api.SchedulerApi;
 import com.qubole.qds.sdk.java.api.sparkjobserver.AppApi;
@@ -54,6 +55,7 @@ public class QdsClientImpl implements QdsClient
     private final ClusterApiImpl clusterApi;
     private final HiveMetadataApiImpl hiveMetadataApi;
     private final DbTapApiImpl dbTapsApi;
+    private final NotebookApiImpl  notebookApi;
     private final ReportApiImpl reportApi;
     private final SchedulerApiImpl schedulerApi;
     private final AppApiImpl appApi;
@@ -74,6 +76,7 @@ public class QdsClientImpl implements QdsClient
         clusterApi = new ClusterApiImpl(this);
         hiveMetadataApi = new HiveMetadataApiImpl(this);
         dbTapsApi = new DbTapApiImpl(this);
+        notebookApi = new NotebookApiImpl(this);
         reportApi = new ReportApiImpl(this);
         schedulerApi = new SchedulerApiImpl(this);
         appApi = new AppApiImpl(this);
@@ -109,6 +112,10 @@ public class QdsClientImpl implements QdsClient
     public DbTapApi dbTaps()
     {
         return dbTapsApi;
+    }
+
+    @Override public NotebookApi notebook() {
+        return notebookApi;
     }
 
     @Override
